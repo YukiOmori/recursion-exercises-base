@@ -46,23 +46,23 @@
       console.log(resultString);
       return resultString; 
     } else {
-      console.log('not base case');
+      // console.log('not base case');
       _.each(obj, function (value, indexOrKey, iteratedObj) {
-        console.log('iterate over obj');
+        // console.log('iterate over obj');
         if (Array.isArray(obj)) {
-          console.log('obj is array');
+          // console.log('obj is array');
           if (count === 0) {
-            console.log('count 0');
+            // console.log('count 0');
             let addedString = stringify(value);
             resultString += '[' + addedString;
-            count ++;
           } else {
-            console.log('count not 0');
+            // console.log('count not 0');
             let addedString = stringify(value);
             resultString += ',' + addedString;
           } 
+          count ++;
           if (arrWithNoElement(iteratedObj) || count === iteratedObj.length) {
-            console.log('end of obj');
+            // console.log('end of obj');
             resultString += ']';
           }
         } else {

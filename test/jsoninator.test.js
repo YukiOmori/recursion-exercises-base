@@ -30,22 +30,23 @@ describe('stringify()', () => {
     expect(stringify([8])).toEqual('[8]');
   });
 
-  // it('can stringify an array of heterogeneously-typed values', () => {
-  //   expect(stringify([8, 'hi'])).toEqual('[8,"hi"]');
-  // });
+  it('can stringify an array of heterogeneously-typed values', () => {
+    expect(stringify([8, 'hi'])).toEqual('[8,"hi"]');
+  });
 
-  // it('can stringify an array of numbers', () => {
-  //   expect(stringify([1, 0, -1, -0.3, 0.3, 1343.32, 3345, 0.00011999999999999999])).toEqual(
-  //     '[1,0,-1,-0.3,0.3,1343.32,3345,0.00011999999999999999]');
-  // });
+  it('can stringify an array of numbers', () => {
+    expect(stringify([1, 0, -1, -0.3, 0.3, 1343.32, 3345, 0.00011999999999999999])).toEqual(
+      '[1,0,-1,-0.3,0.3,1343.32,3345,0.00011999999999999999]');
+  });
 
-  // it('can stringify a nested array', () => {
-  //   expect(stringify([8, [[], 3, 4]])).toEqual('[8,[[],3,4]]');
-  // });
+  it('can stringify a nested array', () => {
+    expect(stringify([8, [[], 3, 4]])).toEqual('[8,[[],3,4]]');
+  });
 
-  // it('can stringify a deeply-nested array', () => {
-  //   expect(stringify([[[['foo']]]])).toEqual('[[[["foo"]]]]');
-  // });
+  it('can stringify a deeply-nested array', () => {
+    expect(stringify([[[['foo']]]])).toEqual('[[[["foo"]]]]');
+  });
+  
   it('can stringify an empty object literal', () => {
     expect(stringify({})).toEqual('{}');
   });
