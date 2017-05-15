@@ -43,38 +43,30 @@
       } else {
         resultString += addDoubleQuatationToString(obj);
       }
-      console.log(resultString);
       return resultString; 
     } else {
-      // console.log('not base case');
       _.each(obj, function (value, indexOrKey, iteratedObj) {
-        // console.log('iterate over obj');
-        if (Array.isArray(obj)) {
-          // console.log('obj is array');
+        if (Array.isArray(iteratedObj)) {
           if (count === 0) {
-            // console.log('count 0');
             let addedString = stringify(value);
             resultString += '[' + addedString;
           } else {
-            // console.log('count not 0');
             let addedString = stringify(value);
             resultString += ',' + addedString;
           } 
           count ++;
           if (arrWithNoElement(iteratedObj) || count === iteratedObj.length) {
-            // console.log('end of obj');
             resultString += ']';
           }
         } else {
           if (count === 0) {
             let addedString = stringify(value);
-            addedString = addDoubleQuatationToString(addedString);
-            resultString += '{' + addDoubleQuatationToString(indexOrKey) + ': ' + addedString;
+            resultString += '{' + addDoubleQuatationToString(indexOrKey) + ':' + addedString;
           } else {
             let addedString = stringify(value);
-            addedString = addDoubleQuatationToString(addedString);
-            resultString += ',' + addDoubleQuatationToString(indexOrKey) + ': ' + addedString;
+            resultString += ',' + addDoubleQuatationToString(indexOrKey) + ':' + addedString;
           } 
+          count ++;
           if (count === Object.keys(iteratedObj).length) {
             resultString += '}';
           }
