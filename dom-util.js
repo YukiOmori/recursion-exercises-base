@@ -1,18 +1,19 @@
-
 const visitAllNodes = function(node, callback) {
-  if (node.childNodes.length > 0) {
-    for (let i = 0; i < node.childNodes.length; i++) {
-      visitAllNodes(node.childNodes[i], callback);
-    }
-  }
+  if (node.childNodes) {
+  //base case以外
+    //子ノードの各要素対してvisitAllnodes
+    node.childNodes.forEach((childNode) => {
+      visitAllNodes(childNode, callback);
+    });    
   callback(node);
+  }
 };
 
 const flattenTreeToArray = function(node) {
   // Hint: Use visitAllNodes()
   let flatArray = [];
-  visitAllNodes(node, () => {
-    flatArray.push(node.size);
+  visitAllNodes(node, (currentNode) => {
+    flatArray.push(currentNode);
   });
   return flatArray;
 };
